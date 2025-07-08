@@ -1,0 +1,44 @@
+openapi: 3.0.0
+info:
+  title: Python App API
+  version: 1.0.0
+  description: API for Python app with health and info endpoints
+
+servers:
+  - url: https://test.pavan.com
+
+paths:
+  /api/v1/healthz:
+    get:
+      summary: Health Check
+      description: Returns the health status of the application
+      responses:
+        '200':
+          description: Application is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: healthy
+
+  /api/v1/info:
+    get:
+      summary: Application Info
+      description: Provides information about the application
+      responses:
+        '200':
+          description: Application info returned
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: string
+                    example: 1.0.0
+                  uptime:
+                    type: string
+                    example: "2 days, 5 hours"
