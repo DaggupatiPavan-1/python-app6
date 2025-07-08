@@ -12,3 +12,5 @@ spec:
   type: service
   owner: development
   lifecycle: experimental
+  providesApis:
+    - python-app-api  
