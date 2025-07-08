@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: python-app-api
+  description: API for Python app with health and info endpoints
+  tags:
+    - python
+    - rest
+spec:
+  type: openapi
+  lifecycle: production
+  owner: team-pavan
+  system: check-system
+  definition: https://raw.githubusercontent.com/DaggupatiPavan-1/python-app6/refs/heads/main/openapi.yaml
