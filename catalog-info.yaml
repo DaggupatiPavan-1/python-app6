@@ -6,19 +6,47 @@ metadata:
   annotations:
     github.com/project-slug: DaggupatiPavan-1/python-app6
     backstage.io/kubernetes-namespace: dev
-    backstage.io/kubernetes-label-selector: "app.kubernetes.io/name:python-app6"
+    backstage.io/kubernetes-label-selector: "app.kubernetes.io/name=python-app6"
     backstage.io/techdocs-ref: dir:.
 spec:
   type: service
   owner: development
   lifecycle: experimental
   providesApis:
-    - python-app-api  
+    - python-app-api
 ---
 apiVersion: backstage.io/v1alpha1
-kind: Location
+kind: API
 metadata:
-  name: python-app-apis
+  name: python-app-api
+  description: API for Python app with health and info endpoints
+  tags:
+    - python
+    - rest
 spec:
-  type: url
-  target: https://github.com/DaggupatiPavan-1/python-app6/blob/main/python-app-api.yaml
+  type: openapi
+  lifecycle: experimental
+  owner: development
+  system: check-system
+  definition: https://test.pavan.com/openapi.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: development
+  description: Development team responsible for python-app6
+spec:
+  type: team
+  profile:
+    displayName: Development Team
+    email: dev-team@example.com
+    picture: https://avatars.githubusercontent.com/u/12345678?v=4
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: check-system
+  description: System for Python APIs including python-app6
+spec:
+  owner: development
