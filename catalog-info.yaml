@@ -14,3 +14,11 @@ spec:
   lifecycle: experimental
   providesApis:
     - python-app-api  
+---
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: python-app-apis
+spec:
+  type: url
+  target: https://github.com/DaggupatiPavan-1/python-app6/blob/main/python-app-api.yaml
